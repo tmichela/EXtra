@@ -66,6 +66,7 @@ jobs:
         uses: pypa/cibuildwheel@v2.19.2
         env:
           CIBW_BUILD: cp310-*
+          CIBW_SKIP: "*-musllinux_*  pp*"
 
       - name: Build sdist
         run: pipx run build --sdist
