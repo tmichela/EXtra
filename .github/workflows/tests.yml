@@ -39,12 +39,6 @@ jobs:
       env:
         CALCAT_OAUTH_CREDS: ${{ secrets.CALCAT_OAUTH_CREDS }}
 
-    - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v4
-      with:
-        fail_ci_if_error: true
-        token: ${{ secrets.CODECOV_TOKEN }}
-        verbose: true
 
   publish:
     runs-on: ubuntu-latest
@@ -65,9 +59,9 @@ jobs:
 
       - name: build wheel
         uses: pypa/cibuildwheel@v2.19.2
-        env:
-          CIBW_BUILD: cp310-manylinux_x86_64
-          CIBW_SKIP: "*-musllinux_*"
+          #        env:
+          #CIBW_BUILD: cp310-manylinux_x86_64
+          #CIBW_SKIP: "*-musllinux_*"
 
       - name: Upload wheels
         uses: actions/upload-artifact@v4
