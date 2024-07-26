@@ -47,26 +47,34 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Set up Python 3.10
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
+          #      - name: Set up Python 3.10
+          #        uses: actions/setup-python@v4
+          #        with:
+          #          python-version: "3.10"
 
-      - name: Build sdist
-        run: |
-          python3 -m pip install build
-          python3 -m build --sdist
+          #      - name: Build sdist
+          #        run: |
+          #          python3 -m pip install build
+          #          python3 -m build --sdist
 
-      - name: build wheel
+          #      - name: build wheel
+          #        uses: pypa/cibuildwheel@v2.19.2
+          #        env:
+          #          CIBW_BUILD: cp310-*
+
+      - name: Build wheels
         uses: pypa/cibuildwheel@v2.19.2
         env:
           CIBW_BUILD: cp310-*
 
+      - name: Build sdist
+        run: pipx run build --sdist
+
       - name: Upload wheels
         uses: actions/upload-artifact@v4
-        with:
-          path: ./wheelhouse/*.whl
-          name: wheel
+          with:
+            path: ./wheelhouse/*.whl
+            name: wheel
 
       - name: Upload sdist
         uses: actions/upload-artifact@v4
