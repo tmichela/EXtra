@@ -83,3 +83,6 @@ jobs:
           path: dist/*.tar.gz
           name: dist
 
+      - name: list artifacts
+        run: |
+          ls -hla ./dist
