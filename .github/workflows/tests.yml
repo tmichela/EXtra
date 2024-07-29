@@ -70,7 +70,7 @@ jobs:
       - name: show constraints
         run: |
           cat .github/dependabot/constraints.txt
-          cat {{ env.PIP_CONSTRAINT }}
+          cat "${{ env.PIP_CONSTRAINT }}"
 
 #      - name: Build wheels
 #        uses: pypa/cibuildwheel@v2.19.2
