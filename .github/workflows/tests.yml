@@ -9,7 +9,7 @@ on:
       - published
 
 env:
-  PIP_CONSTRAINT: "${{ GITHUB_WORKSPACE }}/.github/dependabot/constraints.txt"
+  PIP_CONSTRAINT: "${{ env.GITHUB_WORKSPACE }}/.github/dependabot/constraints.txt"
 
 jobs:
   tests:
