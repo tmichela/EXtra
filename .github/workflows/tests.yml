@@ -8,6 +8,9 @@ on:
     types:
       - published
 
+env:
+  PIP_CONSTRAINT: .github/dependabot/constraints.txt
+
 jobs:
   tests:
 
